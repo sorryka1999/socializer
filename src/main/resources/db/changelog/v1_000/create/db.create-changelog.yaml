@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - logicalFilePath: no-path
+  - changeSet:
+      id: 2023-09-16.create-tables
+      author: postgresql
+      changes:
+        - sqlFile:
+            dbms: 'postgresql'
+            path: db/changelog/v1_000/create/2023-09-16.create-tables.sql

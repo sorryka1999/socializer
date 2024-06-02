@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: socializer
+  liquibase:
+    enabled: true
+  datasource:
+    url: jdbc:postgresql:some_host:5432/socializer
+    driver-class-name: org.postgresql.Driver
+    username: socializer
+    password: some_password
+    hikari:
+      minimum-idle: 3
+      idle-timeout: 0
+      maximum-pool-size: 15
+      pool-name: local-pool-${spring.application.name}
+      max-lifetime: 1800000
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        ddl-auto: validate
+        enable_lazy_load_no_trans: true
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: UNSPECIFIED
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: elte.socializer@gmail.com
+    password: some_password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  http2:
+    enabled: true
+  port: 8900
+  servlet:
+    context-path: /${spring.application.name}
+logging:
+  config: ./config/logback-config.xml
+jwt:
+  secret: some_secret

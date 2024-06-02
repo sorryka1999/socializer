@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - logicalFilePath: no-path
+  - changeSet:
+      id: 2023-10-04.insert-data
+      author: postgresql
+      changes:
+        - sqlFile:
+            dbms: 'postgresql'
+            path: db/changelog/v1_000/insert/2023-10-04.insert-data.sql
